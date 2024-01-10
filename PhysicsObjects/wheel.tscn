@@ -7,7 +7,6 @@
 radius = 64.0
 
 [node name="Wheel" type="RigidBody2D"]
-gravity_scale = 0.0
 script = ExtResource("1_t2wl2")
 
 [node name="Sprite" type="Sprite2D" parent="."]

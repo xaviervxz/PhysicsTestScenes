@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ry10dtc2ke5n"]
+[gd_scene load_steps=3 format=3 uid="uid://ry10dtc2ke5n"]
 
 [ext_resource type="PackedScene" uid="uid://cs3vf4qvsuogu" path="res://PhysicsObjects/slanted_ground.tscn" id="1_ar3vr"]
-[ext_resource type="PackedScene" uid="uid://cl6pmrlq0w42u" path="res://PhysicsObjects/wheel.tscn" id="2_twjgv"]
-[ext_resource type="PackedScene" uid="uid://c3kt28blv4x55" path="res://PhysicsObjects/pole.tscn" id="3_7bu1m"]
+[ext_resource type="PackedScene" uid="uid://b0u1orqer0q4n" path="res://PhysicsObjects/axle.tscn" id="2_d0a11"]
 
 [node name="Playground" type="Node2D"]
 
@@ -21,21 +20,6 @@ position = Vector2(10, 332)
 rotation = 1.5708
 scale = Vector2(4, 1)
 
-[node name="WheelTop" parent="." instance=ExtResource("2_twjgv")]
-position = Vector2(124, 78)
-
-[node name="PinWheelTop" type="PinJoint2D" parent="WheelTop"]
-node_a = NodePath("..")
-node_b = NodePath("../../Pole")
-
-[node name="WheelBot" parent="." instance=ExtResource("2_twjgv")]
-position = Vector2(127, 330)
-
-[node name="PinWheelBot" type="PinJoint2D" parent="WheelBot"]
-position = Vector2(-1, 0)
-node_a = NodePath("..")
-node_b = NodePath("../../Pole")
-
-[node name="Pole" parent="." instance=ExtResource("3_7bu1m")]
-position = Vector2(124, 203)
+[node name="Axle" parent="." instance=ExtResource("2_d0a11")]
+position = Vector2(165, -53)
 rotation = 1.5708
