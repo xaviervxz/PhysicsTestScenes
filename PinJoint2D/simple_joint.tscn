@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://c40s2lcu5ugek"]
+
+[ext_resource type="Script" path="res://PinJoint2D/playground.gd" id="1_aqymy"]
+[ext_resource type="PackedScene" uid="uid://3nce3cfi4ub5" path="res://PhysicsObjects/plank.tscn" id="2_f5ne0"]
+[ext_resource type="PackedScene" uid="uid://cl6pmrlq0w42u" path="res://PhysicsObjects/wheel.tscn" id="3_xys4n"]
+[ext_resource type="PackedScene" uid="uid://cs3vf4qvsuogu" path="res://PhysicsObjects/slanted_ground.tscn" id="4_4whj5"]
+
+[node name="Playground" type="Node2D"]
+position = Vector2(546, 450)
+script = ExtResource("1_aqymy")
+
+[node name="Wheel" parent="." instance=ExtResource("3_xys4n")]
+position = Vector2(74, 28)
+scale = Vector2(0.25, 0.25)
+
+[node name="WheelJoint" type="PinJoint2D" parent="."]
+position = Vector2(74, 13)
+node_a = NodePath("../Plank")
+node_b = NodePath("../Wheel")
+
+[node name="ground" parent="." instance=ExtResource("4_4whj5")]
+position = Vector2(-20, 38)
+
+[node name="Plank" parent="." instance=ExtResource("2_f5ne0")]
+position = Vector2(75, 10)
+scale = Vector2(0.5, 0.5)

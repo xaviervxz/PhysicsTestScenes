@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://ew6quev7kti"]
+
+[ext_resource type="PackedScene" uid="uid://cs3vf4qvsuogu" path="res://PhysicsObjects/slanted_ground.tscn" id="1_ejv52"]
+[ext_resource type="PackedScene" uid="uid://cl6pmrlq0w42u" path="res://PhysicsObjects/wheel.tscn" id="2_nocoa"]
+[ext_resource type="PackedScene" uid="uid://c3kt28blv4x55" path="res://PhysicsObjects/pole.tscn" id="3_fn628"]
+
+[node name="Playground" type="Node2D"]
+
+[node name="ground_up" parent="." instance=ExtResource("1_ejv52")]
+position = Vector2(209, 169)
+rotation = 0.174533
+scale = Vector2(4, 1)
+
+[node name="ground_down" parent="." instance=ExtResource("1_ejv52")]
+position = Vector2(591, 463)
+rotation = -0.174533
+scale = Vector2(4, 1)
+
+[node name="back_wall" parent="." instance=ExtResource("1_ejv52")]
+position = Vector2(10, 332)
+rotation = 1.5708
+scale = Vector2(4, 1)
+
+[node name="front_wall" parent="." instance=ExtResource("1_ejv52")]
+position = Vector2(1143, 240)
+rotation = -1.5708
+scale = Vector2(4, 1)
+
+[node name="WheelTop" parent="." instance=ExtResource("2_nocoa")]
+position = Vector2(124, 78)
+
+[node name="PinWheelTop" type="PinJoint2D" parent="WheelTop"]
+node_a = NodePath("..")
+node_b = NodePath("../../Pole")
+
+[node name="WheelBot" parent="." instance=ExtResource("2_nocoa")]
+position = Vector2(377, 78)
+
+[node name="PinWheelBot" type="PinJoint2D" parent="WheelBot"]
+position = Vector2(-1, 0)
+node_a = NodePath("..")
+node_b = NodePath("../../Pole")
+
+[node name="WheelDrag" parent="." instance=ExtResource("2_nocoa")]
+position = Vector2(249, 204)
+
+[node name="PinWheelBot" type="PinJoint2D" parent="WheelDrag"]
+position = Vector2(-1, 0)
+node_a = NodePath("..")
+node_b = NodePath("../../DragPole")
+
+[node name="PinWheelBot2" type="PinJoint2D" parent="WheelDrag"]
+position = Vector2(1, -126)
+node_a = NodePath("../../Pole")
+node_b = NodePath("../../DragPole")
+
+[node name="Pole" parent="." instance=ExtResource("3_fn628")]
+position = Vector2(249, 77)
+
+[node name="DragPole" parent="." instance=ExtResource("3_fn628")]
+position = Vector2(249, 140)
+rotation = 1.5708
+scale = Vector2(0.5, 1)

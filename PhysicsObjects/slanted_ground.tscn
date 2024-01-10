@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs3vf4qvsuogu"]
+
+[ext_resource type="Texture2D" uid="uid://div0o5u46h3t6" path="res://PhysicsObjects/ground.png" id="1_kgrv2"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_we1it"]
+a = Vector2(-128, 0)
+b = Vector2(128, 0)
+
+[node name="ground" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_we1it")
+
+[node name="Ground" type="Sprite2D" parent="."]
+texture = ExtResource("1_kgrv2")
