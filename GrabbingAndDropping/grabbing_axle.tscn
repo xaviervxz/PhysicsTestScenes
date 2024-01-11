@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0u1orqer0q4n"]
+
+[ext_resource type="Script" path="res://GrabbingAndDropping/grabber/axle.gd" id="1_q56oe"]
+[ext_resource type="PackedScene" uid="uid://cl6pmrlq0w42u" path="res://PhysicsObjects/wheel.tscn" id="2_k1kca"]
+[ext_resource type="PackedScene" uid="uid://c3kt28blv4x55" path="res://PhysicsObjects/pole.tscn" id="3_pvtuj"]
+[ext_resource type="PackedScene" uid="uid://rbupduypt43h" path="res://GrabbingAndDropping/grabber/shoulder.tscn" id="4_8p0a8"]
+[ext_resource type="PackedScene" uid="uid://xtsra3k368jy" path="res://GrabbingAndDropping/grabber/hand.tscn" id="5_tnwsg"]
+
+[node name="Axle" type="Node2D"]
+script = ExtResource("1_q56oe")
+
+[node name="WheelTop" parent="." instance=ExtResource("2_k1kca")]
+position = Vector2(-125, 1)
+
+[node name="PinWheelTop" type="PinJoint2D" parent="WheelTop"]
+node_a = NodePath("..")
+node_b = NodePath("../../Pole")
+
+[node name="WheelBot" parent="." instance=ExtResource("2_k1kca")]
+position = Vector2(128, 1)
+
+[node name="PinWheelBot" type="PinJoint2D" parent="WheelBot"]
+position = Vector2(-1, 0)
+node_a = NodePath("..")
+node_b = NodePath("../../Pole")
+
+[node name="Pole" parent="." instance=ExtResource("3_pvtuj")]
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Pole"]
+position = Vector2(0, -1)
+node_a = NodePath("../../Shoulder")
+node_b = NodePath("..")
+
+[node name="Shoulder" parent="." instance=ExtResource("4_8p0a8")]
+position = Vector2(0, -1)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Shoulder"]
+node_a = NodePath("..")
+node_b = NodePath("../../Hand")
+softness = 1.0
+
+[node name="Hand" parent="." instance=ExtResource("5_tnwsg")]
+position = Vector2(-1, 140)

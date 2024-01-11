@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Physics Tests"
-run/main_scene="res://PinJoint2D/axle_drop.tscn"
+run/main_scene="res://GrabbingAndDropping/car_that_carries.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://PhysicsObjects/wheel.png"
 

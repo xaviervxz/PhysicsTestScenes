@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxobvw4wu0f24"]
+
+[ext_resource type="Script" path="res://GrabbingAndDropping/grabbable/grabbable.gd" id="1_kp6d0"]
+[ext_resource type="Texture2D" uid="uid://kcqu1q61jwqc" path="res://GrabbingAndDropping/grabbable/puddle.png" id="1_yg1ga"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0dy36"]
+radius = 14.0
+height = 44.0
+
+[node name="Grabbable" type="RigidBody2D"]
+script = ExtResource("1_kp6d0")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_yg1ga")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_0dy36")

@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://xtsra3k368jy"]
+
+[ext_resource type="Texture2D" uid="uid://bdtv4m6f5n1ix" path="res://GrabbingAndDropping/grabber/hand.png" id="1_0rutr"]
+[ext_resource type="Script" path="res://GrabbingAndDropping/grabber/hand.gd" id="1_csfrt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fvtpq"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yrxrl"]
+
+[node name="Hand" type="RigidBody2D"]
+script = ExtResource("1_csfrt")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(3, 5)
+texture = ExtResource("1_0rutr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7, -10)
+shape = SubResource("CircleShape2D_fvtpq")
+
+[node name="GrabbingRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabbingRange"]
+position = Vector2(1.90735e-06, 3.8147e-06)
+rotation = 1.0472
+shape = SubResource("CircleShape2D_yrxrl")
+
+[node name="Palm" type="PinJoint2D" parent="."]
+node_a = NodePath("..")
+
+[node name="OpenHandTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="OpenHandTimer" to="." method="_on_open_hand_timer_timeout"]

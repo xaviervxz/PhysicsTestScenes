@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ew6quev7kti"]
 
 [ext_resource type="PackedScene" uid="uid://cs3vf4qvsuogu" path="res://PhysicsObjects/slanted_ground.tscn" id="1_ejv52"]
-[ext_resource type="PackedScene" uid="uid://b0u1orqer0q4n" path="res://PhysicsObjects/axle.tscn" id="2_kkuqb"]
+[ext_resource type="PackedScene" uid="uid://b0u1orqer0q4n" path="res://GrabbingAndDropping/grabbing_axle.tscn" id="2_kkuqb"]
 
 [node name="Playground" type="Node2D"]
 

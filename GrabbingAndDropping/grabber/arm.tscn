@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://kd8admfp17ep"]
+
+[ext_resource type="PackedScene" uid="uid://rbupduypt43h" path="res://GrabbingAndDropping/grabber/shoulder.tscn" id="1_uqint"]
+[ext_resource type="PackedScene" uid="uid://xtsra3k368jy" path="res://GrabbingAndDropping/grabber/hand.tscn" id="2_r8ots"]
+
+[node name="Arm" type="Node2D"]
+
+[node name="Shoulder" parent="." instance=ExtResource("1_uqint")]
+
+[node name="Hand" parent="." instance=ExtResource("2_r8ots")]
+position = Vector2(19, 110)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+node_a = NodePath("../Shoulder")
+node_b = NodePath("../Hand")
