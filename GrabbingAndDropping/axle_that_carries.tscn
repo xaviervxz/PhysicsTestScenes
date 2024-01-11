@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cs3vf4qvsuogu" path="res://PhysicsObjects/slanted_ground.tscn" id="1_aq6nw"]
 [ext_resource type="PackedScene" uid="uid://bxobvw4wu0f24" path="res://GrabbingAndDropping/grabbable/grabbable.tscn" id="3_8mq3w"]
-[ext_resource type="PackedScene" uid="uid://u6t60m7wf45y" path="res://GrabbingAndDropping/grabber/central_anchor.tscn" id="4_7gwno"]
+[ext_resource type="PackedScene" uid="uid://u6t60m7wf45y" path="res://GrabbingAndDropping/vehicles/central_anchor.tscn" id="4_7gwno"]
 [ext_resource type="Script" path="res://GrabbingAndDropping/trigger.gd" id="4_qma5g"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_20tb0"]
