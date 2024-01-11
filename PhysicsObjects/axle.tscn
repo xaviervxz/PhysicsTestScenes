@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3kt28blv4x55"]
+
+[ext_resource type="PackedScene" uid="uid://cl6pmrlq0w42u" path="res://PhysicsObjects/wheel.tscn" id="1_mc0wn"]
+[ext_resource type="Texture2D" uid="uid://div0o5u46h3t6" path="res://PhysicsObjects/ground.png" id="2_c8kx0"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_mugjc"]
+a = Vector2(-128, 0)
+b = Vector2(128, 0)
+
+[node name="Axle" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 0
+mass = 20.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_mugjc")
+
+[node name="BackPin" type="PinJoint2D" parent="."]
+position = Vector2(-128, 0)
+node_a = NodePath("..")
+node_b = NodePath("Wheel")
+
+[node name="Wheel" parent="BackPin" instance=ExtResource("1_mc0wn")]
+scale = Vector2(0.3, 0.3)
+
+[node name="FrontPin" type="PinJoint2D" parent="."]
+position = Vector2(128, 0)
+node_a = NodePath("..")
+node_b = NodePath("Wheel")
+
+[node name="Wheel" parent="FrontPin" instance=ExtResource("1_mc0wn")]
+scale = Vector2(0.3, 0.3)
+
+[node name="Ground" type="Sprite2D" parent="."]
+texture = ExtResource("2_c8kx0")

@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3kt28blv4x55"]
+[gd_scene load_steps=3 format=3 uid="uid://crf82hcmmqr7"]
 
-[ext_resource type="Texture2D" uid="uid://div0o5u46h3t6" path="res://PhysicsObjects/ground.png" id="1_hpu78"]
+[ext_resource type="Texture2D" uid="uid://div0o5u46h3t6" path="res://PhysicsObjects/ground.png" id="1_qu20y"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_mugjc"]
 a = Vector2(-128, 0)
@@ -15,4 +15,4 @@ mass = 20.0
 shape = SubResource("SegmentShape2D_mugjc")
 
 [node name="Ground" type="Sprite2D" parent="."]
-texture = ExtResource("1_hpu78")
+texture = ExtResource("1_qu20y")

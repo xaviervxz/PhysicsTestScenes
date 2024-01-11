@@ -24,11 +24,12 @@ func try_grab(body):
 
 func drop():
 	var pin : Joint2D = $Palm
-	var held_item = get_node(pin.node_b)
-	held_item.drop()
-	pin.node_b = "null"
-	$GrabbingRange/CollisionShape2D.disabled = true
-	$OpenHandTimer.start()
+	var held_item = get_node_or_null(pin.node_b)
+	if held_item:
+		held_item.drop()
+		pin.node_b = "null"
+		$GrabbingRange/CollisionShape2D.disabled = true
+		$OpenHandTimer.start()
 	
 
 

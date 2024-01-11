@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://5lt5xqxkeatg"]
+
+[ext_resource type="PackedScene" uid="uid://c3kt28blv4x55" path="res://PhysicsObjects/axle.tscn" id="1_2y0vv"]
+[ext_resource type="PackedScene" uid="uid://kd8admfp17ep" path="res://GrabbingAndDropping/grabber/arm.tscn" id="2_jj8ki"]
+
+[node name="Center" type="RigidBody2D"]
+
+[node name="Axle" parent="." instance=ExtResource("1_2y0vv")]
+position = Vector2(-1, -1)
+
+[node name="Joint" type="PinJoint2D" parent="Axle"]
+position = Vector2(1, 1)
+node_a = NodePath("../..")
+node_b = NodePath("..")
+
+[node name="Arm" parent="." instance=ExtResource("2_jj8ki")]
+
+[node name="Joint" type="PinJoint2D" parent="Arm"]
+node_a = NodePath("../..")
+node_b = NodePath("..")
