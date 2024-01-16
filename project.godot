@@ -21,6 +21,7 @@ project/assembly_name="Physics Tests"
 
 [layer_names]
 
+3d_physics/layer_2="Groundless"
 3d_physics/layer_4="Wall"
 
 [rendering]

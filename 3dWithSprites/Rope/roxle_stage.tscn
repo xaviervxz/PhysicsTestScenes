@@ -23,6 +23,12 @@ strength = 100.0
 [node name="Plank" parent="." instance=ExtResource("4_8fsp8")]
 transform = Transform3D(0.793661, 0, 0.60836, 0, 1, 0, -0.60836, 0, 0.793661, 1.3916, -6.10352e-05, -0.150146)
 
+[node name="Plank2" parent="." instance=ExtResource("4_8fsp8")]
+transform = Transform3D(0.793661, 0, 0.60836, 0, 1, 0, -0.60836, 0, 0.793661, 1.3916, 0.216492, -0.150146)
+
+[node name="Plank3" parent="." instance=ExtResource("4_8fsp8")]
+transform = Transform3D(0.793661, 0, 0.60836, 0, 1, 0, -0.60836, 0, 0.793661, 1.3916, 0.433044, -0.150146)
+
 [node name="Wall" parent="." instance=ExtResource("4_8fsp8")]
 transform = Transform3D(0.718794, 0, -0.695223, 0, 1, 0, 0.695223, 0, 0.718794, -0.762375, -6.10352e-05, -1.35327)
 

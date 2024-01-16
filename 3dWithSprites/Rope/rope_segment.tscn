@@ -25,4 +25,5 @@ shape = SubResource("CylinderShape3D_y7psy")
 mesh = SubResource("CylinderMesh_fxh47")
 
 [node name="AnchorPin" type="PinJoint3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0919189, 0)
 node_a = NodePath("..")
