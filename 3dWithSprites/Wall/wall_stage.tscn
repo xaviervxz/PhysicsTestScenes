@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://dl4yxewtpt8e6"]
+
+[ext_resource type="PackedScene" uid="uid://cqyb5aw3q266n" path="res://3dWithSprites/PhysicsObjects/ground.tscn" id="1_pyyal"]
+[ext_resource type="PackedScene" uid="uid://uw30dl2uywf3" path="res://3dWithSprites/PhysicsObjects/wheel.tscn" id="3_2v1ub"]
+[ext_resource type="PackedScene" uid="uid://c27qkmcewc5v4" path="res://3dWithSprites/Wall/wall.tscn" id="4_48foq"]
+[ext_resource type="PackedScene" uid="uid://dxlu3cgj1caka" path="res://3dWithSprites/forces/force.tscn" id="4_n5jn6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_osjhi"]
+bounce = 0.34
+
+[sub_resource type="MeshLibrary" id="MeshLibrary_ab1jb"]
+
+[node name="Stage" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.524803, 0.851224, 0, -0.851224, 0.524803, 0.00941682, 2.49792, 0.877945)
+
+[node name="Ground" parent="." instance=ExtResource("1_pyyal")]
+
+[node name="Wheel" parent="." instance=ExtResource("3_2v1ub")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.515938, 1, -1.84812)
+physics_material_override = SubResource("PhysicsMaterial_osjhi")
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = SubResource("MeshLibrary_ab1jb")
+
+[node name="Force" parent="." instance=ExtResource("4_n5jn6")]
+strength = 100.0
+
+[node name="Plank" parent="." instance=ExtResource("4_48foq")]
+transform = Transform3D(0.793661, 0, 0.60836, 0, 1, 0, -0.60836, 0, 0.793661, 1.3916, -6.10352e-05, -0.150146)
+
+[node name="Wall" parent="." instance=ExtResource("4_48foq")]
+transform = Transform3D(0.718794, 0, -0.695223, 0, 1, 0, 0.695223, 0, 0.718794, -0.762375, -6.10352e-05, -1.35327)
