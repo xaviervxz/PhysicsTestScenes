@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgeqex1oacda5"]
+
+[sub_resource type="GDScript" id="GDScript_p0o4e"]
+script/source = "class_name SoftJoint extends DampedSpringJoint2D
+
+"
+
+[node name="Joint" type="DampedSpringJoint2D"]
+script = SubResource("GDScript_p0o4e")

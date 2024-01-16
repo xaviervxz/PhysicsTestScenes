@@ -1,0 +1,232 @@
+[gd_scene load_steps=7 format=3 uid="uid://derqh30viaeno"]
+
+[ext_resource type="Script" path="res://2d/Softbody/bouncers/bouncing_ball.gd" id="1_m7few"]
+[ext_resource type="Texture2D" uid="uid://dymn8g28s61c1" path="res://2d/PhysicsObjects/plank.png" id="2_46cje"]
+[ext_resource type="PackedScene" uid="uid://cl6pmrlq0w42u" path="res://2d/PhysicsObjects/wheel.tscn" id="3_vouba"]
+[ext_resource type="Script" path="res://2d/PhysicsObjects/visibone.gd" id="4_r3klc"]
+[ext_resource type="Texture2D" uid="uid://ifgapq8qw8v0" path="res://2d/PhysicsObjects/X_ring.png" id="5_vis5b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x85de"]
+
+[node name="0" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 0
+mass = 20.0
+gravity_scale = 0.0
+script = ExtResource("1_m7few")
+has_root_bone = true
+
+[node name="P1" type="Polygon2D" parent="."]
+position = Vector2(-63.8561, -33.3883)
+rotation = -1.01255
+scale = Vector2(0.952606, 1)
+texture = ExtResource("2_46cje")
+skeleton = NodePath("../Skeleton2D")
+polygon = PackedVector2Array(128, 16, -128, 16, -128, -16, 128, -16, -0.28653, 0.286537)
+uv = PackedVector2Array(256, 32, 0, 32, 0, 0, 256, 0, -0.28653, 0.286537)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+bones = ["0", PackedFloat32Array(0, 0, 0, 0, 0), "1", PackedFloat32Array(1, 0, 0, 1, 1), "2", PackedFloat32Array(0, 0, 0, 0, 0), "3", PackedFloat32Array(0, 1, 1, 0, 1)]
+internal_vertex_count = 1
+
+[node name="P2" type="Polygon2D" parent="."]
+position = Vector2(65.7903, -34.2889)
+rotation = 1.01229
+scale = Vector2(0.951745, 1)
+texture = ExtResource("2_46cje")
+skeleton = NodePath("../Skeleton2D")
+polygon = PackedVector2Array(128, 16, -128, 16, -128, -16, 128, -16, -0.28653, 0.286537)
+uv = PackedVector2Array(256, 32, 0, 32, 0, 0, 256, 0, -0.28653, 0.286537)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+bones = ["0", PackedFloat32Array(0, 0, 0, 0, 0), "1", PackedFloat32Array(0, 1, 1, 0, 1), "2", PackedFloat32Array(1, 0, 0, 1, 1), "3", PackedFloat32Array(0, 0, 0, 0, 0)]
+internal_vertex_count = 1
+
+[node name="P3" type="Polygon2D" parent="."]
+position = Vector2(0.372696, 71.0428)
+rotation = 3.14159
+texture = ExtResource("2_46cje")
+skeleton = NodePath("../Skeleton2D")
+polygon = PackedVector2Array(128, 16, -128, 16, -128, -16, 128, -16, -0.28653, 0.286537)
+uv = PackedVector2Array(256, 32, 0, 32, 0, 0, 256, 0, -0.28653, 0.286537)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+bones = ["0", PackedFloat32Array(0, 0, 0, 0, 0), "1", PackedFloat32Array(0, 0, 0, 0, 0), "2", PackedFloat32Array(0, 1, 1, 0, 1), "3", PackedFloat32Array(1, 0, 0, 1, 1)]
+internal_vertex_count = 1
+
+[node name="P4" type="Polygon2D" parent="."]
+position = Vector2(-64.1511, 36.2189)
+rotation = -0.506711
+scale = Vector2(0.567227, 0.5)
+texture = ExtResource("2_46cje")
+skeleton = NodePath("../Skeleton2D")
+polygon = PackedVector2Array(128, 16, -128, 16, -128, -16, 128, -16, -0.28653, 0.286537)
+uv = PackedVector2Array(256, 32, 0, 32, 0, 0, 256, 0, -0.28653, 0.286537)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+bones = ["0", PackedFloat32Array(1, 0, 0, 1, 1), "1", PackedFloat32Array(0, 0, 0, 0, 0), "2", PackedFloat32Array(0, 0, 0, 0, 0), "3", PackedFloat32Array(0, 1, 1, 0, 1)]
+internal_vertex_count = 1
+
+[node name="P5" type="Polygon2D" parent="."]
+position = Vector2(0.372696, -68.3086)
+rotation = 1.5708
+scale = Vector2(0.541808, 0.5)
+texture = ExtResource("2_46cje")
+skeleton = NodePath("../Skeleton2D")
+polygon = PackedVector2Array(128, 16, -128, 16, -128, -16, 128, -16, -0.28653, 0.286537)
+uv = PackedVector2Array(256, 32, 0, 32, 0, 0, 256, 0, -0.28653, 0.286537)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+bones = ["0", PackedFloat32Array(1, 0, 0, 1, 0), "1", PackedFloat32Array(0, 1, 1, 0, 0), "2", PackedFloat32Array(0, 0, 0, 0, 0), "3", PackedFloat32Array(0, 0, 0, 0, 0)]
+internal_vertex_count = 1
+
+[node name="P6" type="Polygon2D" parent="."]
+position = Vector2(65.7133, 35.3736)
+rotation = 3.67461
+scale = Vector2(0.566585, 0.5)
+texture = ExtResource("2_46cje")
+skeleton = NodePath("../Skeleton2D")
+polygon = PackedVector2Array(128, 16, -128, 16, -128, -16, 128, -16, -0.28653, 0.286537)
+uv = PackedVector2Array(256, 32, 0, 32, 0, 0, 256, 0, -0.28653, 0.286537)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+bones = ["0", PackedFloat32Array(1, 0, 0, 1, 1), "1", PackedFloat32Array(0, 0, 0, 0, 0), "2", PackedFloat32Array(0, 1, 1, 0, 1), "3", PackedFloat32Array(0, 0, 0, 0, 0)]
+internal_vertex_count = 1
+
+[node name="0_1" type="DampedSpringJoint2D" parent="."]
+position = Vector2(-128, 71)
+rotation = -2.07334
+node_a = NodePath("..")
+node_b = NodePath("../1")
+length = 128.0
+stiffness = 15.0
+
+[node name="0_2" type="DampedSpringJoint2D" parent="."]
+position = Vector2(-128, 71)
+rotation = -2.07334
+node_a = NodePath("..")
+node_b = NodePath("../2")
+length = 128.0
+stiffness = 15.0
+
+[node name="0_3" type="DampedSpringJoint2D" parent="."]
+position = Vector2(-128, 71)
+rotation = -2.07334
+node_a = NodePath("..")
+node_b = NodePath("../3")
+length = 128.0
+stiffness = 15.0
+
+[node name="1_0" type="DampedSpringJoint2D" parent="."]
+position = Vector2(0, -138)
+node_a = NodePath("../1")
+node_b = NodePath("..")
+length = 128.0
+stiffness = 15.0
+
+[node name="1_2" type="DampedSpringJoint2D" parent="."]
+position = Vector2(128, 71)
+rotation = 2.60778
+node_a = NodePath("../1")
+node_b = NodePath("../2")
+length = 256.0
+
+[node name="1_3" type="DampedSpringJoint2D" parent="."]
+position = Vector2(128, 71)
+rotation = 2.60778
+node_a = NodePath("../1")
+node_b = NodePath("../3")
+length = 256.0
+
+[node name="2_0" type="DampedSpringJoint2D" parent="."]
+position = Vector2(128, 71)
+rotation = 2.08373
+node_a = NodePath("../2")
+node_b = NodePath("..")
+length = 128.0
+stiffness = 15.0
+
+[node name="2_1" type="DampedSpringJoint2D" parent="."]
+position = Vector2(128, 71)
+rotation = 2.60778
+node_a = NodePath("../2")
+node_b = NodePath("../1")
+length = 256.0
+
+[node name="2_3" type="DampedSpringJoint2D" parent="."]
+position = Vector2(128, 71)
+rotation = 2.60778
+node_a = NodePath("../2")
+node_b = NodePath("../3")
+length = 256.0
+
+[node name="3_0" type="DampedSpringJoint2D" parent="."]
+position = Vector2(-128, 71)
+rotation = -2.07334
+node_a = NodePath("../3")
+node_b = NodePath("..")
+length = 128.0
+stiffness = 15.0
+
+[node name="3_1" type="DampedSpringJoint2D" parent="."]
+position = Vector2(0, -138)
+rotation = 0.546916
+node_a = NodePath("../3")
+node_b = NodePath("../1")
+length = 256.0
+
+[node name="3_2" type="DampedSpringJoint2D" parent="."]
+position = Vector2(-128, 71)
+rotation = -1.571
+node_a = NodePath("../3")
+node_b = NodePath("../2")
+length = 256.0
+
+[node name="1" parent="." instance=ExtResource("3_vouba")]
+position = Vector2(128.373, 71.0428)
+scale = Vector2(0.2, 0.2)
+
+[node name="2" parent="." instance=ExtResource("3_vouba")]
+position = Vector2(0.372696, -137.957)
+scale = Vector2(0.2, 0.2)
+
+[node name="3" parent="." instance=ExtResource("3_vouba")]
+position = Vector2(-127.627, 71.0428)
+scale = Vector2(0.2, 0.2)
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+position = Vector2(0.372696, 71.0428)
+
+[node name="0" type="Bone2D" parent="Skeleton2D"]
+position = Vector2(-0.372696, -71.0428)
+rest = Transform2D(1, 0, 0, 1, 0, -71)
+script = ExtResource("4_r3klc")
+
+[node name="XRing" type="Sprite2D" parent="Skeleton2D/0"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_vis5b")
+
+[node name="1" type="Bone2D" parent="Skeleton2D"]
+position = Vector2(-0.372696, -209.043)
+rest = Transform2D(1, 0, 0, 1, 0, -209)
+script = ExtResource("4_r3klc")
+
+[node name="XRing1" type="Sprite2D" parent="Skeleton2D/1"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_vis5b")
+
+[node name="2" type="Bone2D" parent="Skeleton2D"]
+position = Vector2(127.627, -0.0428009)
+rest = Transform2D(1, 0, 0, 1, 128, 0)
+script = ExtResource("4_r3klc")
+
+[node name="XRing2" type="Sprite2D" parent="Skeleton2D/2"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_vis5b")
+
+[node name="3" type="Bone2D" parent="Skeleton2D"]
+position = Vector2(-128.373, -0.0428009)
+rest = Transform2D(1, 0, 0, 1, -128, 0)
+script = ExtResource("4_r3klc")
+
+[node name="XRing3" type="Sprite2D" parent="Skeleton2D/3"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_vis5b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.372696, 0.0428314)
+shape = SubResource("CircleShape2D_x85de")

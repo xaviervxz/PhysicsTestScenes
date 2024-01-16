@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba8kr5uspc2iy"]
+
+[ext_resource type="PackedScene" uid="uid://cs3vf4qvsuogu" path="res://2d/PhysicsObjects/slanted_ground.tscn" id="1_s5cln"]
+[ext_resource type="PackedScene" uid="uid://bvljf5t7i5klw" path="res://2d/PhysicsObjects/springle.tscn" id="2_bm8td"]
+
+[node name="Playground" type="Node2D"]
+
+[node name="ground_up" parent="." instance=ExtResource("1_s5cln")]
+position = Vector2(430, 200)
+rotation = 0.174533
+scale = Vector2(4, 1)
+
+[node name="ground_down" parent="." instance=ExtResource("1_s5cln")]
+position = Vector2(490, 527)
+rotation = -0.523599
+scale = Vector2(4, 1)
+
+[node name="back_wall" parent="." instance=ExtResource("1_s5cln")]
+position = Vector2(10, 332)
+rotation = 1.5708
+scale = Vector2(4, 1)
+
+[node name="SpringAxle" parent="." instance=ExtResource("2_bm8td")]
+position = Vector2(81, 221)
+rotation = 1.5708

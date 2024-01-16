@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhkq4vm6omph7"]
+
+[ext_resource type="PackedScene" uid="uid://cs3vf4qvsuogu" path="res://2d/PhysicsObjects/slanted_ground.tscn" id="1_o4sxi"]
+[ext_resource type="PackedScene" uid="uid://3nce3cfi4ub5" path="res://2d/PhysicsObjects/plank.tscn" id="2_yr8gb"]
+[ext_resource type="PackedScene" uid="uid://dradyen4w1hhn" path="res://2d/SpringJoint2D/sprangle.tscn" id="3_g5n3f"]
+
+[node name="Playground" type="Node2D"]
+
+[node name="ground_up" parent="." instance=ExtResource("1_o4sxi")]
+position = Vector2(430, 200)
+rotation = 0.174533
+scale = Vector2(4, 1)
+
+[node name="ground_down" parent="." instance=ExtResource("1_o4sxi")]
+position = Vector2(558, 438)
+scale = Vector2(4, 1)
+
+[node name="back_wall" parent="." instance=ExtResource("1_o4sxi")]
+position = Vector2(10, 332)
+rotation = 1.5708
+scale = Vector2(4, 1)
+
+[node name="Plank" parent="." instance=ExtResource("2_yr8gb")]
+position = Vector2(573, 379)
+scale = Vector2(5, 1)
+gravity_scale = 0.0
+
+[node name="Axle" parent="." instance=ExtResource("3_g5n3f")]
+position = Vector2(256, 239)

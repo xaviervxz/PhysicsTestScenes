@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqyb5aw3q266n"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jcl2p"]
+friction = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w5dm3"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="Gradient" id="Gradient_wgh0b"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s2h3l"]
+gradient = SubResource("Gradient_wgh0b")
+width = 2048
+height = 2048
+fill_from = Vector2(0.431193, 0.756881)
+
+[node name="Ground" type="StaticBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_jcl2p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_w5dm3")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+transparent = false
+texture = SubResource("GradientTexture2D_s2h3l")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dej48ejehslkm"]
+
+[ext_resource type="Texture2D" uid="uid://cpgfw0x0i2hr4" path="res://3dWithSprites/PhysicsObjects/plank.png" id="3_mkro0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0aet5"]
+size = Vector3(2.5, 0.1, 0.4)
+
+[node name="Plank" type="RigidBody3D"]
+
+[node name="Sprite" type="Sprite3D" parent="."]
+billboard = 1
+texture = ExtResource("3_mkro0")
+
+[node name="CollisionShape" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_0aet5")

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bllx1txxab3c2"]
+
+[ext_resource type="PackedScene" uid="uid://uw30dl2uywf3" path="res://3dWithSprites/PhysicsObjects/wheel.tscn" id="1_eun7d"]
+[ext_resource type="PackedScene" uid="uid://de861hgx7o7s4" path="res://3dWithSprites/PhysicsObjects/long_plank.tscn" id="2_t3vbw"]
+
+[node name="Axle" type="RigidBody3D"]
+collision_layer = 0
+collision_mask = 0
+mass = 20.0
+
+[node name="PinFront" type="PinJoint3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50468, 0, 0.00426384)
+node_a = NodePath("../WheelFront")
+node_b = NodePath("../LongPlank")
+
+[node name="PinBack" type="PinJoint3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.51992, 0, 0.00426384)
+node_a = NodePath("../WheelBack")
+node_b = NodePath("../LongPlank")
+
+[node name="WheelFront" parent="." instance=ExtResource("1_eun7d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.51543, 0, 0.00426384)
+
+[node name="WheelBack" parent="." instance=ExtResource("1_eun7d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.52127, 0, 0)
+
+[node name="LongPlank" parent="." instance=ExtResource("2_t3vbw")]

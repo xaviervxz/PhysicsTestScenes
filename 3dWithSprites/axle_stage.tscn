@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://dst272hv847in"]
+
+[ext_resource type="PackedScene" uid="uid://cqyb5aw3q266n" path="res://3dWithSprites/PhysicsObjects/ground.tscn" id="1_c8jvy"]
+[ext_resource type="PackedScene" uid="uid://uw30dl2uywf3" path="res://3dWithSprites/PhysicsObjects/wheel.tscn" id="3_j8sho"]
+[ext_resource type="PackedScene" uid="uid://d1rowsc6jsidy" path="res://3dWithSprites/PhysicsObjects/wall.tscn" id="3_jhveq"]
+[ext_resource type="PackedScene" uid="uid://dxlu3cgj1caka" path="res://3dWithSprites/forces/force.tscn" id="4_brmbn"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xaa3t"]
+rough = true
+bounce = 1.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_r4wob"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_osjhi"]
+bounce = 0.34
+
+[sub_resource type="MeshLibrary" id="MeshLibrary_ab1jb"]
+
+[node name="Stage" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.524803, 0.851224, 0, -0.851224, 0.524803, 0.00941682, 2.49792, 0.877945)
+
+[node name="Ground" parent="." instance=ExtResource("1_c8jvy")]
+
+[node name="Plank" parent="." instance=ExtResource("3_jhveq")]
+transform = Transform3D(-0.42178, 0, 0.906699, 0, 1, 0, -0.906699, 0, -0.42178, -0.454298, 0.402742, -1.05526)
+mass = 1000.0
+physics_material_override = SubResource("PhysicsMaterial_xaa3t")
+
+[node name="Plank2" parent="." instance=ExtResource("3_jhveq")]
+transform = Transform3D(0.998998, 0, 0.0447531, 0, 1, 0, -0.0447531, 0, 0.998998, 1.152, 0.05, 0)
+mass = 1000.0
+physics_material_override = SubResource("PhysicsMaterial_r4wob")
+gravity_scale = 0.0
+
+[node name="Wheel" parent="." instance=ExtResource("3_j8sho")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.515938, 1, -1.84812)
+physics_material_override = SubResource("PhysicsMaterial_osjhi")
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = SubResource("MeshLibrary_ab1jb")
+
+[node name="Force" parent="." instance=ExtResource("4_brmbn")]
+strength = 100.0

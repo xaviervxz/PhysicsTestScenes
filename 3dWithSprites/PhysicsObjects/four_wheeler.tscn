@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://vq74bdrhmqgq"]
+
+[ext_resource type="PackedScene" uid="uid://bllx1txxab3c2" path="res://3dWithSprites/PhysicsObjects/axle.tscn" id="1_7qlh0"]
+[ext_resource type="PackedScene" uid="uid://dej48ejehslkm" path="res://3dWithSprites/PhysicsObjects/plank.tscn" id="2_cd0ts"]
+
+[node name="4Wheeler" type="RigidBody3D"]
+
+[node name="AxleRight" parent="." instance=ExtResource("1_7qlh0")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 1)
+
+[node name="AxleLeft" parent="." instance=ExtResource("1_7qlh0")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -1)
+
+[node name="PlankFront" parent="." instance=ExtResource("2_cd0ts")]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 2, 0, 0)
+
+[node name="PlankBack" parent="." instance=ExtResource("2_cd0ts")]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -2, 0, 0)
+
+[node name="PinFR" type="PinJoint3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.125, 1)
+node_a = NodePath("../PlankFront")
+node_b = NodePath("../AxleRight")
+
+[node name="PinFR2" type="PinJoint3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.125, 1)
+node_a = NodePath("../PlankFront")
+node_b = NodePath("../AxleRight")
+
+[node name="PinBR" type="PinJoint3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.125, 1)
+node_a = NodePath("../PlankBack")
+node_b = NodePath("../AxleRight")
+
+[node name="PinBR2" type="PinJoint3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.125, 1)
+node_a = NodePath("../PlankBack")
+node_b = NodePath("../AxleRight")
+
+[node name="PinBL" type="PinJoint3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.125, -1)
+node_a = NodePath("../PlankBack")
+node_b = NodePath("../AxleLeft")
+
+[node name="PinBL2" type="PinJoint3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.125, -1)
+node_a = NodePath("../PlankBack")
+node_b = NodePath("../AxleLeft")
+
+[node name="PinFL" type="PinJoint3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.125, -1)
+node_a = NodePath("../PlankFront")
+node_b = NodePath("../AxleLeft")
+
+[node name="PinFL2" type="PinJoint3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.125, -1)
+node_a = NodePath("../PlankFront")
+node_b = NodePath("../AxleLeft")

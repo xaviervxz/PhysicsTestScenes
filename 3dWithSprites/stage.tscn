@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=3 uid="uid://dmw3tvu7cuc6s"]
+
+[ext_resource type="Texture2D" uid="uid://dymn8g28s61c1" path="res://2d/PhysicsObjects/plank.png" id="1_0inxc"]
+[ext_resource type="Texture2D" uid="uid://dp4o8dohxkicl" path="res://2d/Explosion/bomb/475.png" id="1_8v7hr"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_adudr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pjyp8"]
+size = Vector3(20, 20, 1)
+
+[sub_resource type="Animation" id="Animation_7runu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Back Wall/Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_m8bvv"]
+resource_name = "splosion"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Back Wall/Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b56ka"]
+_data = {
+"RESET": SubResource("Animation_7runu"),
+"splosion": SubResource("Animation_m8bvv")
+}
+
+[node name="Stage" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.865197)
+
+[node name="Back Wall" type="StaticBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_adudr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Back Wall"]
+shape = SubResource("BoxShape3D_pjyp8")
+
+[node name="Sprite3D" type="Sprite3D" parent="Back Wall"]
+transform = Transform3D(1, 0, 0, 0, -0.147809, -0.989016, 0, 0.989016, -0.147809, 0, 0, 0)
+texture = ExtResource("1_8v7hr")
+hframes = 8
+vframes = 2
+frame = 1
+
+[node name="Sprite3D2" type="Sprite3D" parent="Back Wall"]
+transform = Transform3D(0.68838, 0, -0.72535, 0, 1, 0, 0.72535, 0, 0.68838, 0, 0, 0)
+texture = ExtResource("1_0inxc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "splosion"
+libraries = {
+"": SubResource("AnimationLibrary_b56ka")
+}

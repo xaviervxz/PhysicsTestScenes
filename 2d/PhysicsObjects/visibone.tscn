@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc3b57juij8gh"]
+
+[ext_resource type="Script" path="res://2d/PhysicsObjects/visibone.gd" id="1_ohvtg"]
+[ext_resource type="Texture2D" uid="uid://ifgapq8qw8v0" path="res://2d/PhysicsObjects/X_ring.png" id="2_11sd1"]
+
+[node name="VisibleBone" type="Bone2D"]
+script = ExtResource("1_ohvtg")
+
+[node name="XRing" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_11sd1")

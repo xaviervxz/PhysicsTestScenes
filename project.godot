@@ -11,14 +11,19 @@ config_version=5
 [application]
 
 config/name="Physics Tests"
-run/main_scene="res://GrabbingAndDropping/axle_that_carries.tscn"
+run/main_scene="res://3dWithSprites/axle_stage.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
-config/icon="res://PhysicsObjects/wheel.png"
+config/icon="res://2d/PhysicsObjects/wheel.png"
 
 [dotnet]
 
 project/assembly_name="Physics Tests"
 
+[layer_names]
+
+3d_physics/layer_4="Wall"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+textures/canvas_textures/default_texture_repeat=1

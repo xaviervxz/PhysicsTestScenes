@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://dde1nuoax4qbb"]
+
+[ext_resource type="PackedScene" uid="uid://cs3vf4qvsuogu" path="res://2d/PhysicsObjects/slanted_ground.tscn" id="1_qdhut"]
+[ext_resource type="PackedScene" uid="uid://b0u1orqer0q4n" path="res://2d/GrabbingAndDropping/vehicles/grabbing_axle.tscn" id="2_jl7g0"]
+[ext_resource type="PackedScene" uid="uid://bxobvw4wu0f24" path="res://2d/GrabbingAndDropping/grabbable/grabbable.tscn" id="3_uotrl"]
+[ext_resource type="Script" path="res://2d/GrabbingAndDropping/trigger.gd" id="4_g6kup"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_20tb0"]
+a = Vector2(500, 800)
+b = Vector2(500, 0)
+
+[node name="Playground" type="Node2D"]
+
+[node name="ground_up" parent="." instance=ExtResource("1_qdhut")]
+position = Vector2(508, 216)
+rotation = 0.174533
+scale = Vector2(4, 1)
+
+[node name="ground_down" parent="." instance=ExtResource("1_qdhut")]
+position = Vector2(525, 320)
+rotation = 0.174533
+scale = Vector2(4, 1)
+
+[node name="back_wall" parent="." instance=ExtResource("1_qdhut")]
+position = Vector2(10, 332)
+rotation = 1.5708
+scale = Vector2(4, 1)
+
+[node name="front_wall" parent="." instance=ExtResource("1_qdhut")]
+position = Vector2(1143, 240)
+rotation = -1.5708
+scale = Vector2(4, 1)
+
+[node name="Axle" parent="." instance=ExtResource("2_jl7g0")]
+position = Vector2(207, 66)
+
+[node name="Grabbable" parent="." instance=ExtResource("3_uotrl")]
+position = Vector2(267, 243)
+
+[node name="DropTrigger" type="Area2D" parent="."]
+script = ExtResource("4_g6kup")
+trigger_type = "drop_trigger"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropTrigger"]
+shape = SubResource("SegmentShape2D_20tb0")

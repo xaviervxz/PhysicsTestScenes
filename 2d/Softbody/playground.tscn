@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://btp5ocxxtv56f"]
+
+[ext_resource type="PackedScene" uid="uid://cs3vf4qvsuogu" path="res://2d/PhysicsObjects/slanted_ground.tscn" id="1_6soji"]
+[ext_resource type="PackedScene" uid="uid://dk1m17jh5e1us" path="res://2d/Softbody/soft_ball.tscn" id="3_p8swr"]
+
+[node name="Playground" type="Node2D"]
+
+[node name="ground4" parent="." instance=ExtResource("1_6soji")]
+position = Vector2(924, 403)
+rotation = -0.174533
+scale = Vector2(3, 1)
+
+[node name="ground5" parent="." instance=ExtResource("1_6soji")]
+position = Vector2(835, 115)
+rotation = -0.174533
+scale = Vector2(3, 1)
+
+[node name="ground6" parent="." instance=ExtResource("1_6soji")]
+position = Vector2(337, 271)
+rotation = 0.174533
+scale = Vector2(3, 1)
+
+[node name="ground7" parent="." instance=ExtResource("1_6soji")]
+position = Vector2(355, 488)
+rotation = 0.174533
+scale = Vector2(3, 1)
+
+[node name="0" parent="." instance=ExtResource("3_p8swr")]
+position = Vector2(773, 51)

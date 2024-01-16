@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://boa1v78glr8rs"]
+
+[ext_resource type="Script" path="res://2d/Softbody/bouncers/bouncing_ball.gd" id="1_ndg6v"]
+[ext_resource type="PackedScene" uid="uid://cl6pmrlq0w42u" path="res://2d/PhysicsObjects/wheel.tscn" id="2_gxqe1"]
+[ext_resource type="Texture2D" uid="uid://div0o5u46h3t6" path="res://2d/PhysicsObjects/ground.png" id="3_l5ry6"]
+
+[node name="Axle" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 0
+mass = 20.0
+script = ExtResource("1_ndg6v")
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="."]
+position = Vector2(-128, 0)
+rotation = -1.5708
+node_a = NodePath("../0")
+node_b = NodePath("../1")
+length = 256.0
+stiffness = 64.0
+
+[node name="0" parent="." instance=ExtResource("2_gxqe1")]
+position = Vector2(-128, 0)
+scale = Vector2(0.3, 0.3)
+
+[node name="1" parent="." instance=ExtResource("2_gxqe1")]
+position = Vector2(128, 0)
+scale = Vector2(0.3, 0.3)
+
+[node name="Ground" type="Polygon2D" parent="."]
+texture = ExtResource("3_l5ry6")
+skeleton = NodePath("../Skeleton2D")
+polygon = PackedVector2Array(128, 2, -128, 2, -128, -2, 128, -2, 0, -2.52366, -0.31546, 1.89275)
+uv = PackedVector2Array(256, 4, 0, 4, 0, 0, 256, 0, 0, -2.52366, -0.31546, 1.89275)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+bones = ["0", PackedFloat32Array(0, 1, 1, 0, 1, 0), "1", PackedFloat32Array(1, 0, 0, 1, 0, 1)]
+internal_vertex_count = 2
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+
+[node name="0" type="Bone2D" parent="Skeleton2D"]
+position = Vector2(-128, 0)
+rest = Transform2D(1, 0, 0, 1, -128, 0)
+
+[node name="1" type="Bone2D" parent="Skeleton2D"]
+position = Vector2(128, 0)
+rotation = -3.14159
+rest = Transform2D(-1, -2.53518e-06, 2.53518e-06, -1, 128, 0)
