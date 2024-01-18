@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://djvj27umnbeap"]
+
+[ext_resource type="PackedScene" uid="uid://cqyb5aw3q266n" path="res://3dWithSprites/PhysicsObjects/ground.tscn" id="1_6b3fn"]
+[ext_resource type="PackedScene" uid="uid://vkok1ibb870d" path="res://3dWithSprites/Wall/octo_room.tscn" id="2_hxrqs"]
+[ext_resource type="PackedScene" uid="uid://dk1hy1xed2wg1" path="res://3dWithSprites/forces/instantiations/spinning_force.tscn" id="3_lkc1w"]
+[ext_resource type="PackedScene" uid="uid://uw30dl2uywf3" path="res://3dWithSprites/PhysicsObjects/wheel.tscn" id="4_023kh"]
+
+[sub_resource type="MeshLibrary" id="MeshLibrary_ab1jb"]
+
+[node name="Stage" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.707107, 0.612373, -0.353553, 0, 0.5, 0.866026, 0.707107, 0.612373, -0.353553, -3, 4, -3)
+fov = 76.6158
+
+[node name="Ground" parent="." instance=ExtResource("1_6b3fn")]
+collision_layer = 3
+collision_mask = 3
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = SubResource("MeshLibrary_ab1jb")
+
+[node name="OctoRoom" parent="." instance=ExtResource("2_hxrqs")]
+constant_angular_velocity = Vector3(0, 0.0349066, 0)
+
+[node name="SpinningForce3D" parent="." instance=ExtResource("3_lkc1w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Top" parent="." instance=ExtResource("4_023kh")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 1.228)
+
+[node name="Wheel" parent="." instance=ExtResource("4_023kh")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.139, 1, -1.79366)

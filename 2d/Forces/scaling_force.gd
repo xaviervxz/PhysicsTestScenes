@@ -1,4 +1,4 @@
-class_name ScalingForce extends Force
+class_name ScalingForce2D extends Force2D
 
 @export var force_scaling : float = 1
 @export var edge_strength : float = 1000

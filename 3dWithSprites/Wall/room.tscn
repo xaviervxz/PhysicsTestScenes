@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://3n5ipyeisfxi"]
+
+[ext_resource type="PackedScene" uid="uid://b85htyr70g2bi" path="res://3dWithSprites/Wall/long_wall.tscn" id="1_hhesc"]
+
+[node name="Room" type="StaticBody3D"]
+
+[node name="Left" parent="." instance=ExtResource("1_hhesc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.75)
+
+[node name="Right" parent="." instance=ExtResource("1_hhesc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.75)
+
+[node name="Top" parent="." instance=ExtResource("1_hhesc")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.75, 0, 0)
+
+[node name="Bot" parent="." instance=ExtResource("1_hhesc")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.75, 0, 0)
