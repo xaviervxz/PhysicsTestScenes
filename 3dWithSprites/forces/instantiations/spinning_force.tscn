@@ -1,14 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://dk1hy1xed2wg1"]
+[gd_scene load_steps=23 format=3 uid="uid://dk1hy1xed2wg1"]
 
+[ext_resource type="Script" path="res://3dWithSprites/forces/instantiations/AreaOfEffect.gd" id="2_ckx84"]
 [ext_resource type="Texture2D" uid="uid://blq3vjlflfhst" path="res://2d/Forces/199.png" id="2_udfxn"]
 [ext_resource type="Script" path="res://3dWithSprites/forces/cylindrical_force_3D.gd" id="3_j78l8"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_jw4qc"]
-height = 20.0
-radius = 5.0
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_p8d7n"]
-radius = 0.4
+radius = 0.2
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3i80w"]
 atlas = ExtResource("2_udfxn")
@@ -116,11 +113,22 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jw4qc"]
+height = 20.0
+radius = 5.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j8oog"]
+transparency = 1
+albedo_color = Color(0.223529, 1, 1, 0.101961)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jqeop"]
+material = SubResource("StandardMaterial3D_j8oog")
+top_radius = 5.0
+bottom_radius = 5.0
+height = 30.0
+
 [node name="SpinningForce3D" type="Area3D"]
 script = ExtResource("3_j78l8")
-
-[node name="AreaOfEffect" type="CollisionShape3D" parent="."]
-shape = SubResource("CylinderShape3D_jw4qc")
 
 [node name="Center" type="StaticBody3D" parent="."]
 
@@ -131,3 +139,10 @@ shape = SubResource("SphereShape3D_p8d7n")
 billboard = 1
 sprite_frames = SubResource("SpriteFrames_g3uly")
 autoplay = "default"
+
+[node name="AreaOfEffect" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_jw4qc")
+script = ExtResource("2_ckx84")
+
+[node name="Mesh" type="MeshInstance3D" parent="AreaOfEffect"]
+mesh = SubResource("CylinderMesh_jqeop")

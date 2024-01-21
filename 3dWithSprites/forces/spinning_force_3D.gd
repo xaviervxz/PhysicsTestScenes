@@ -1,4 +1,4 @@
-class_name SpinningForce3D extends ScalingForce3D
+class_name SpinningForcesvw3D extends ScalingForce3D
 
 @export var clockwise:bool = true
 
