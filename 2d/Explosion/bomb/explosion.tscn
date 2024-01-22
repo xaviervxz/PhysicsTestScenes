@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://r57nofgob6jv"]
 
 [ext_resource type="Script" path="res://2d/Forces/scaling_force.gd" id="1_uysc4"]
-[ext_resource type="Texture2D" uid="uid://dp4o8dohxkicl" path="res://2d/Explosion/bomb/475.png" id="2_ea7c7"]
-[ext_resource type="Texture2D" uid="uid://b4ealjici1vft" path="res://2d/Explosion/bomb/Free Smoke Fx  Pixel 02.png" id="2_gyitp"]
+[ext_resource type="Texture2D" uid="uid://ejfrook60fom" path="res://2d/Explosion/bomb/475.png" id="2_ea7c7"]
+[ext_resource type="Texture2D" uid="uid://cs82mp222vvu3" path="res://2d/Explosion/bomb/Free Smoke Fx  Pixel 02.png" id="2_gyitp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3auuc"]
 radius = 5.0

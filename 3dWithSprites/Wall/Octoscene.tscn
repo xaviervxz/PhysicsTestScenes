@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk4c1ba3f3lmp"]
+
+[ext_resource type="PackedScene" uid="uid://cqyb5aw3q266n" path="res://3dWithSprites/PhysicsObjects/ground.tscn" id="1_4i3bh"]
+[ext_resource type="PackedScene" uid="uid://vkok1ibb870d" path="res://3dWithSprites/Wall/octo_room.tscn" id="2_6673w"]
+
+[node name="Ground" instance=ExtResource("1_4i3bh")]
+
+[node name="OctoRoom" parent="." index="2" instance=ExtResource("2_6673w")]

@@ -1,4 +1,4 @@
-class_name Force extends Area2D
+class_name Force2D extends Area2D
 
 @export var strength : float
 @export var direction : Vector2

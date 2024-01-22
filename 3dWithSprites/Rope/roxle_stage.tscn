@@ -1,27 +1,32 @@
-[gd_scene load_steps=6 format=3 uid="uid://cbtsa3p6kws4q"]
+[gd_scene load_steps=8 format=3 uid="uid://cbtsa3p6kws4q"]
 
 [ext_resource type="PackedScene" uid="uid://cqyb5aw3q266n" path="res://3dWithSprites/PhysicsObjects/ground.tscn" id="1_krvx2"]
-[ext_resource type="PackedScene" uid="uid://dxlu3cgj1caka" path="res://3dWithSprites/forces/force.tscn" id="3_ilclc"]
+[ext_resource type="PackedScene" uid="uid://dxlu3cgj1caka" path="res://3dWithSprites/forces/instantiations/force.tscn" id="3_ilclc"]
 [ext_resource type="PackedScene" uid="uid://c27qkmcewc5v4" path="res://3dWithSprites/Wall/wall.tscn" id="4_8fsp8"]
 [ext_resource type="PackedScene" uid="uid://dmv8n080i0fjy" path="res://3dWithSprites/Rope/rope_axle.tscn" id="4_33d0h"]
+[ext_resource type="PackedScene" uid="uid://c2odrv2kf41pj" path="res://3dWithSprites/Rope/rope.tscn" id="5_5h0af"]
+[ext_resource type="PackedScene" uid="uid://uw30dl2uywf3" path="res://3dWithSprites/PhysicsObjects/wheel.tscn" id="6_juld7"]
 
 [sub_resource type="MeshLibrary" id="MeshLibrary_ab1jb"]
 
 [node name="Stage" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.524803, 0.851224, 0, -0.851224, 0.524803, 0.00941682, 2.49792, 0.877945)
+transform = Transform3D(1, 0, 0, 0, 0.524803, 0.851224, 0, -0.851224, 0.524803, 0.00941682, 2.49792, 1.87794)
+fov = 76.6158
 
 [node name="Ground" parent="." instance=ExtResource("1_krvx2")]
+collision_layer = 3
+collision_mask = 3
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = SubResource("MeshLibrary_ab1jb")
 
 [node name="Force" parent="." instance=ExtResource("3_ilclc")]
-strength = 100.0
+strength = 300.0
 
 [node name="Plank" parent="." instance=ExtResource("4_8fsp8")]
-transform = Transform3D(0.793661, 0, 0.60836, 0, 1, 0, -0.60836, 0, 0.793661, 1.3916, -6.10352e-05, -0.150146)
+transform = Transform3D(0.793661, 0, 0.60836, 0, 1, 0, -0.60836, 0, 0.793661, 1.3916, 0.05, 0)
 
 [node name="Plank2" parent="." instance=ExtResource("4_8fsp8")]
 transform = Transform3D(0.793661, 0, 0.60836, 0, 1, 0, -0.60836, 0, 0.793661, 1.3916, 0.216492, -0.150146)
@@ -30,7 +35,15 @@ transform = Transform3D(0.793661, 0, 0.60836, 0, 1, 0, -0.60836, 0, 0.793661, 1.
 transform = Transform3D(0.793661, 0, 0.60836, 0, 1, 0, -0.60836, 0, 0.793661, 1.3916, 0.433044, -0.150146)
 
 [node name="Wall" parent="." instance=ExtResource("4_8fsp8")]
-transform = Transform3D(0.718794, 0, -0.695223, 0, 1, 0, 0.695223, 0, 0.718794, -0.762375, -6.10352e-05, -1.35327)
+transform = Transform3D(0.718794, 0, -0.695223, 0, 1, 0, 0.695223, 0, 0.718794, -0.762375, 0.05, -1)
 
 [node name="Roxel" parent="." instance=ExtResource("4_33d0h")]
-transform = Transform3D(0.866025, 0.5, 2.18557e-08, 0, -4.37114e-08, 1, 0.5, -0.866025, -3.78552e-08, 1.52047, 1.00012, -2.5029)
+transform = Transform3D(0.890483, -0.455016, -1.98894e-08, 0, -4.37114e-08, 1, -0.455016, -0.890483, -3.89243e-08, 2.01411, 1.00012, -2.12914)
+
+[node name="Rope" parent="." node_paths=PackedStringArray("start_anchor", "end_anchor") instance=ExtResource("5_5h0af")]
+transform = Transform3D(0.99863, 0.052336, 0, -0.052336, 0.99863, 0, 0, 0, 1, -2.80356, 0.18975, -1.5355)
+start_anchor = NodePath("../Wall")
+end_anchor = NodePath("../Wheel")
+
+[node name="Wheel" parent="." instance=ExtResource("6_juld7")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4.352, 0.05, -1.34495)

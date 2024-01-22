@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://djvj27umnbeap"]
+
+[ext_resource type="Script" path="res://3dWithSprites/Wind/stage.gd" id="1_ek2i3"]
+[ext_resource type="Script" path="res://3dWithSprites/Wind/following_camera.gd" id="2_mbopk"]
+[ext_resource type="PackedScene" uid="uid://dk4c1ba3f3lmp" path="res://3dWithSprites/Wall/Octoscene.tscn" id="3_60x47"]
+[ext_resource type="PackedScene" uid="uid://dk1hy1xed2wg1" path="res://3dWithSprites/forces/instantiations/spinning_force.tscn" id="3_lkc1w"]
+[ext_resource type="PackedScene" uid="uid://uw30dl2uywf3" path="res://3dWithSprites/PhysicsObjects/wheel.tscn" id="4_023kh"]
+
+[node name="Stage" type="Node3D"]
+script = ExtResource("1_ek2i3")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.707107, 0.612373, -0.353553, 0, 0.5, 0.866026, 0.707107, 0.612373, -0.353553, -3, 4, -3)
+fov = 76.6158
+script = ExtResource("2_mbopk")
+
+[node name="SpinningForce3D" parent="." instance=ExtResource("3_lkc1w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Top" parent="." instance=ExtResource("4_023kh")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 1.228)
+
+[node name="Wheel" parent="." instance=ExtResource("4_023kh")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.139, 1, -1.79366)
+
+[node name="Level" parent="." instance=ExtResource("3_60x47")]

@@ -1,0 +1,8 @@
+[gd_resource type="QuadMesh" load_steps=2 format=3 uid="uid://cib0wq6rb1pr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7j5fc"]
+albedo_color = Color(0.0823529, 0.419608, 0.631373, 1)
+
+[resource]
+material = SubResource("StandardMaterial3D_7j5fc")
+size = Vector2(2.5, 0.1)
