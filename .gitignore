@@ -2,4 +2,4 @@
 .godot
 *.import
 *.debug
-addons/qodot
+addons/*
