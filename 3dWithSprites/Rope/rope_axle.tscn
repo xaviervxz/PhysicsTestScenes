@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dmv8n080i0fjy"]
 
-[ext_resource type="PackedScene" uid="uid://c2odrv2kf41pj" path="res://3dWithSprites/Rope/rope.tscn" id="4_p3j7v"]
+[ext_resource type="PackedScene" uid="uid://dxu4mwinrnrkr" path="res://3dWithSprites/Rope/rope_segment.tscn" id="3_shohl"]
 [ext_resource type="Script" path="res://3dWithSprites/Rope/Roxel.gd" id="4_ssu8s"]
 [ext_resource type="PackedScene" uid="uid://uw30dl2uywf3" path="res://3dWithSprites/PhysicsObjects/wheel.tscn" id="5_naafo"]
 
@@ -15,6 +15,80 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
 
 [node name="SoftBody3D" type="RigidBody3D" parent="."]
 
-[node name="right_Ropes" parent="." node_paths=PackedStringArray("start_anchor", "end_anchor") instance=ExtResource("4_p3j7v")]
-start_anchor = NodePath("../0")
-end_anchor = NodePath("../1")
+[node name="RopeSegment2" parent="." instance=ExtResource("3_shohl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.267487, 0, 0.378906)
+
+[node name="right_Ropes" type="Node3D" parent="."]
+
+[node name="0" parent="right_Ropes" node_paths=PackedStringArray("anchor") instance=ExtResource("3_shohl")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 1.4206, 0, 0.206284)
+anchor = NodePath("../../0")
+
+[node name="1" parent="right_Ropes" node_paths=PackedStringArray("anchor") instance=ExtResource("3_shohl")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 1.23719, 0, 0.206284)
+anchor = NodePath("../0")
+
+[node name="2" parent="right_Ropes" node_paths=PackedStringArray("anchor") instance=ExtResource("3_shohl")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 1.06086, 0, 0.206284)
+anchor = NodePath("../1")
+
+[node name="3" parent="right_Ropes" node_paths=PackedStringArray("anchor") instance=ExtResource("3_shohl")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.884407, 0, 0.206284)
+anchor = NodePath("../2")
+
+[node name="4" parent="right_Ropes" node_paths=PackedStringArray("anchor") instance=ExtResource("3_shohl")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.70594, 0, 0.206284)
+anchor = NodePath("../3")
+
+[node name="5" parent="right_Ropes" node_paths=PackedStringArray("anchor") instance=ExtResource("3_shohl")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.529488, 0, 0.206284)
+anchor = NodePath("../4")
+
+[node name="6" parent="right_Ropes" node_paths=PackedStringArray("anchor") instance=ExtResource("3_shohl")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.354256, 0, 0.206284)
+anchor = NodePath("../5")
+
+[node name="7" parent="right_Ropes" node_paths=PackedStringArray("anchor") instance=ExtResource("3_shohl")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.16053, 0, 0.206284)
+anchor = NodePath("../6")
+
+[node name="8" parent="right_Ropes" node_paths=PackedStringArray("anchor") instance=ExtResource("3_shohl")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.0200119, 0, 0.206284)
+anchor = NodePath("../7")
+
+[node name="9" parent="right_Ropes" node_paths=PackedStringArray("anchor") instance=ExtResource("3_shohl")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.19561, 0, 0.206284)
+anchor = NodePath("../8")
+
+[node name="10" parent="right_Ropes" node_paths=PackedStringArray("anchor") instance=ExtResource("3_shohl")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.369255, 0, 0.206284)
+anchor = NodePath("../9")
+
+[node name="11" parent="right_Ropes" node_paths=PackedStringArray("anchor") instance=ExtResource("3_shohl")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.547173, 0, 0.206284)
+anchor = NodePath("../10")
+
+[node name="12" parent="right_Ropes" node_paths=PackedStringArray("anchor") instance=ExtResource("3_shohl")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.721062, 0, 0.206284)
+anchor = NodePath("../11")
+
+[node name="13" parent="right_Ropes" node_paths=PackedStringArray("anchor") instance=ExtResource("3_shohl")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.888725, 0, 0.206284)
+anchor = NodePath("../12")
+
+[node name="14" parent="right_Ropes" node_paths=PackedStringArray("anchor") instance=ExtResource("3_shohl")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -1.08337, 0, 0.206284)
+anchor = NodePath("../13")
+
+[node name="15" parent="right_Ropes" node_paths=PackedStringArray("anchor") instance=ExtResource("3_shohl")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -1.26763, 0, 0.206284)
+anchor = NodePath("../14")
+
+[node name="16" parent="right_Ropes" node_paths=PackedStringArray("anchor") instance=ExtResource("3_shohl")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -1.42229, 0, 0.206284)
+anchor = NodePath("../15")
+
+[node name="EndAnchor" type="PinJoint3D" parent="right_Ropes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.48828, 0, 0.206711)
+node_a = NodePath("../16")
+node_b = NodePath("../../1")

@@ -1,56 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://c27qkmcewc5v4"]
+[gd_scene load_steps=3 format=3 uid="uid://c27qkmcewc5v4"]
 
-[ext_resource type="Texture2D" uid="uid://dvr370hmry2uj" path="res://3dWithSprites/PhysicsObjects/plank.png" id="1_vflfd"]
-[ext_resource type="QuadMesh" uid="uid://cib0wq6rb1pr" path="res://3dWithSprites/Wall/long_wall_mesh.tres" id="2_csdim"]
+[ext_resource type="Texture2D" uid="uid://cpgfw0x0i2hr4" path="res://3dWithSprites/PhysicsObjects/plank.png" id="1_vflfd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0aet5"]
-size = Vector3(2.5, 0.5, 0.5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h7ghu"]
-albedo_texture = ExtResource("1_vflfd")
-
-[sub_resource type="QuadMesh" id="QuadMesh_e7io2"]
-size = Vector2(2.5, 0.5)
-orientation = 1
-
-[sub_resource type="QuadMesh" id="QuadMesh_s205g"]
-flip_faces = true
-size = Vector2(2.5, 0.5)
-orientation = 1
-
-[sub_resource type="QuadMesh" id="QuadMesh_hqrhb"]
-size = Vector2(0.5, 0.1)
-orientation = 0
+size = Vector3(2.5, 0.1, 0.4)
 
 [node name="Wall" type="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 collision_layer = 9
 
+[node name="Sprite" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.05, 0)
+texture = ExtResource("1_vflfd")
+
+[node name="Sprite2" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.05, 0)
+texture = ExtResource("1_vflfd")
+
 [node name="CollisionShape" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_0aet5")
-
-[node name="BotMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.25)
-mesh = ExtResource("2_csdim")
-
-[node name="TopSprite" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
-material_override = SubResource("StandardMaterial3D_h7ghu")
-mesh = SubResource("QuadMesh_e7io2")
-
-[node name="BotSprite" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
-material_override = SubResource("StandardMaterial3D_h7ghu")
-mesh = SubResource("QuadMesh_s205g")
-
-[node name="TopMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -0.25)
-mesh = ExtResource("2_csdim")
-
-[node name="FrontMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0, 0)
-mesh = SubResource("QuadMesh_hqrhb")
-
-[node name="BackMesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.25, 0, 0)
-mesh = SubResource("QuadMesh_hqrhb")
