@@ -1,8 +1,8 @@
 extends Camera3D
 
 @export var target : Node3D
-@export var default_camera_height : float = 5
-@export var max_camera_height : float = 9
+@export var default_camera_height : float = 3
+@export var max_camera_height : float = 6
 
 const FOLLOW_SPEED : float = .5
 
